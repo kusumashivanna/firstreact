@@ -20,7 +20,6 @@ class Newsfeed extends Component {
   render() {
     return (
       <div className={styles.base}>
-      
         {this.state.todos &&
           this.state.todos.map(todo => (
           <News image={todo.urlToImage} title={todo.title} content={todo.content}/> 
