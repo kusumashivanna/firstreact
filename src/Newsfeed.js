@@ -4,7 +4,7 @@ import News from "./News";
 class Newsfeed extends Component {
   state = {
     todos: [],
-    error:false
+    error: false
   };
   componentDidMount() {
     fetch(
@@ -14,21 +14,22 @@ class Newsfeed extends Component {
       .then(data => {
         this.setState({ todos: data.articles });
       })
-      .catch(this.setState({error:true}))
-     
+      .catch(this.setState({ error: true }));
   }
   render() {
     return (
       <div className={styles.base}>
         {this.state.todos &&
           this.state.todos.map(todo => (
-          <News image={todo.urlToImage} title={todo.title} content={todo.content}/> 
+            <News
+              image={todo.urlToImage}
+              title={todo.title}
+              content={todo.content}
+            />
           ))}
-          
+        {this.state.error === true && <h1>no data found</h1>}
       </div>
     );
   }
 }
 export default Newsfeed;
-
-
