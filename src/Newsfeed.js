@@ -8,7 +8,7 @@ class Newsfeed extends Component {
   };
   componentDidMount() {
     fetch(
-      "https://newsapi.org/v2/everything?q=bitcoin&from=2019-07-03&sortBy=publishedAt&apiKey=1f02327de8724a96aabfe0202a93a7c1"
+      "https://newsapi.org/v2/everything?q=bitcoin&from=2019-07-05&sortBy=publishedAt&apiKey=1f02327de8724a96aabfe0202a93a7c1"
     )
       .then(res => res.json())
       .then(data => {
@@ -27,7 +27,7 @@ class Newsfeed extends Component {
               content={todo.content}
             />
           ))}
-        {this.state.error === true && <h1>no data found</h1>}
+        {this.state.error === false && <h1>no data found</h1>}
       </div>
     );
   }
